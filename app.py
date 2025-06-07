@@ -16,12 +16,11 @@ def submit():
     email = request.form['email'].strip()
     phone = request.form['phone'].strip()
 
-    # Muster definieren
+    # Validierungsmuster
     name_pattern = re.compile(r"^[A-Za-zÄÖÜäöüß\s\-]{2,30}$")
     email_pattern = re.compile(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$")
     phone_pattern = re.compile(r"^\+?[0-9\s\-]{7,20}$")
 
-    # Validierung
     if not name_pattern.match(vorname):
         return "Ungültiger Vorname", 400
     if not name_pattern.match(nachname):
@@ -31,7 +30,7 @@ def submit():
     if not phone_pattern.match(phone):
         return "Ungültige Telefonnummer", 400
 
-    # In CSV schreiben
+    # Speichern in leads.csv
     file_exists = os.path.isfile('leads.csv')
     with open('leads.csv', mode='a', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
@@ -51,6 +50,10 @@ def admin():
             for row in reader:
                 leads.append(row)
     return render_template('admin.html', leads=leads)
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=81)
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=81)  # Wichtig für Replit
