@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin – Leads</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <style>
+    body {
+      background-color: #111;
+      color: #eee;
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    h1 {
+      color: #00ffc3;
+      text-align: center;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #333;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #222;
+      color: #00ffc3;
+    }
+    tr:nth-child(even) {
+      background-color: #1a1a1a;
+    }
+    .no-data {
+      text-align: center;
+      margin-top: 30px;
+      font-style: italic;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <h1>📋 Lead-Übersicht</h1>
+
+  {% if leads %}
+    <table>
+      <tr>
+        <th>Vorname</th>
+        <th>Nachname</th>
+        <th>Email</th>
+        <th>Telefon</th>
+      </tr>
+      {% for lead in leads %}
+      <tr>
+        <td>{{ lead[0] }}</td>
+        <td>{{ lead[1] }}</td>
+        <td>{{ lead[2] }}</td>
+        <td>{{ lead[3] }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p class="no-data">Noch keine Einträge vorhanden.</p>
+  {% endif %}
+
+</body>
+</html>

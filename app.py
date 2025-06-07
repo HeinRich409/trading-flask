@@ -1,5 +1,5 @@
 import re
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request
 import csv
 import os
 
@@ -41,5 +41,17 @@ def submit():
 
     return render_template('thanks.html')
 
+@app.route('/admin')
+def admin():
+    leads = []
+    if os.path.exists('leads.csv'):
+        with open('leads.csv', newline='', encoding='utf-8') as csvfile:
+            reader = csv.reader(csvfile)
+            headers = next(reader, None)
+            for row in reader:
+                leads.append(row)
+    return render_template('admin.html', leads=leads)
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=81)  # Wichtig für Replit
+
