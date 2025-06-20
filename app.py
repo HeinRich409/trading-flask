@@ -10,7 +10,7 @@ app = Flask(__name__)
 USERNAME = 'admin'
 PASSWORD = '12345'
 
-# Authentifizierungsfunktion
+# Authentifizierung
 def check_auth(username, password):
     return username == USERNAME and password == PASSWORD
 
@@ -28,10 +28,17 @@ def requires_auth(f):
         return f(*args, **kwargs)
     return decorated
 
+# ✅ Pre-Landing
+@app.route('/pre')
+def pre_landing():
+    return render_template('pre-landing.html')
+
+# Landing Page
 @app.route('/')
 def index():
     return render_template('index.html')
 
+# Formular absenden
 @app.route('/submit', methods=['POST'])
 def submit():
     vorname = request.form['vorname'].strip()
@@ -61,6 +68,7 @@ def submit():
 
     return render_template('thanks.html')
 
+# Admin-Bereich
 @app.route('/admin')
 @requires_auth
 def admin():
@@ -68,11 +76,12 @@ def admin():
     if os.path.exists('leads.csv'):
         with open('leads.csv', newline='', encoding='utf-8') as csvfile:
             reader = csv.reader(csvfile)
-            headers = next(reader, None)
+            next(reader, None)
             for row in reader:
                 leads.append(row)
     return render_template('admin.html', leads=leads)
 
+# CSV-Download
 @app.route('/download')
 @requires_auth
 def download_leads():
