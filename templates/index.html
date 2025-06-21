@@ -13,34 +13,34 @@
 
     <!-- Video eingebettet -->
     <video controls autoplay muted playsinline style="width: 100%; max-width: 720px; margin: 20px 0; border-radius: 12px; box-shadow: 0 0 20px rgba(0,0,0,0.3);">
-      <source src="{{ url_for('static', filename='VidnozTextToVideo.mp4') }}" type="video/mp4">
+      <source src="{{ url_for('static', filename='ki-trading.mp4') }}" type="video/mp4">
       Dein Browser unterstützt dieses Videoformat nicht.
     </video>
 
     <!-- Formular -->
     <form action="/submit" method="POST">
-  <input type="text" name="vorname" placeholder="Vorname" required
-         autocomplete="given-name"
-         pattern="^[A-Za-zÄÖÜäöüß\s\-]{2,30}$"
-         title="Nur Buchstaben, Leerzeichen oder Bindestrich erlaubt (2–30 Zeichen)">
+      <input type="text" name="vorname" placeholder="Vorname" required
+             autocomplete="given-name"
+             pattern="^[A-Za-zÄÖÜäöüß\s\-]{2,30}$"
+             title="Nur Buchstaben, Leerzeichen oder Bindestrich erlaubt (2–30 Zeichen)">
 
-  <input type="text" name="nachname" placeholder="Nachname" required
-         autocomplete="family-name"
-         pattern="^[A-Za-zÄÖÜäöüß\s\-]{2,30}$"
-         title="Nur Buchstaben, Leerzeichen oder Bindestrich erlaubt (2–30 Zeichen)">
+      <input type="text" name="nachname" placeholder="Nachname" required
+             autocomplete="family-name"
+             pattern="^[A-Za-zÄÖÜäöüß\s\-]{2,30}$"
+             title="Nur Buchstaben, Leerzeichen oder Bindestrich erlaubt (2–30 Zeichen)">
 
-  <input type="email" name="email" placeholder="E-Mail-Adresse" required
-         autocomplete="email"
-         pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
-         title="Gültige E-Mail-Adresse erforderlich (z. B. max@example.com)">
+      <input type="email" name="email" placeholder="E-Mail-Adresse" required
+             autocomplete="email"
+             pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
+             title="Gültige E-Mail-Adresse erforderlich (z. B. max@example.com)">
 
-  <input type="tel" name="phone" placeholder="Telefonnummer" required
-         autocomplete="tel"
-         pattern="^\+?[0-9\s\-]{7,20}$"
-         title="Nur Zahlen, Leerzeichen, + oder - erlaubt (7–20 Zeichen)">
+      <input type="tel" name="phone" placeholder="Telefonnummer" required
+             autocomplete="tel"
+             pattern="^\+?[0-9\s\-]{7,20}$"
+             title="Nur Zahlen, Leerzeichen, + oder - erlaubt (7–20 Zeichen)">
 
-  <button type="submit">Absenden</button>
-</form>  
-</div>
+      <button type="submit">Absenden</button>
+    </form>  
+  </div>
 </body>
 </html>
