@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>Jetzt mit KI-Trading starten</title>
-  <link rel="stylesheet" href="/static/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Starte mit KI-Trading</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
   <div class="container">
-    <h1>Entdecke KI-Trading</h1>
-    <p>In diesem kurzen Video zeigen wir dir, wie du starten kannst.</p>
+    <h1>Entdecke automatisiertes KI-Trading</h1>
+    <p>Sieh dir an, wie du mit Technologie sofort starten kannst.</p>
 
-    <video controls autoplay muted style="width:100%; border-radius:10px;">
-      <source src="/static/dein-video.mp4" type="video/mp4">
+    <video controls autoplay muted>
+      <source src="{{ url_for('static', filename='dein-video.mp4') }}" type="video/mp4">
       Dein Browser unterstützt dieses Videoformat nicht.
     </video>
 
     <form action="/submit" method="POST">
-      <input type="text" name="name" placeholder="Dein Name" required>
+      <input type="text" name="vorname" placeholder="Vorname" required>
+      <input type="text" name="nachname" placeholder="Nachname" required>
       <input type="email" name="email" placeholder="E-Mail-Adresse" required>
       <input type="tel" name="phone" placeholder="Telefonnummer" required>
-      <button type="submit">Absenden</button>
+      <button type="submit">Jetzt starten</button>
     </form>
   </div>
 </body>
