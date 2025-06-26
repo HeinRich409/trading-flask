@@ -1,79 +1,42 @@
-/* Grundlayout */
 body {
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #111;
+  font-family: Arial, sans-serif;
+  background: #0f0f0f;
   color: #fff;
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 20px;
+  padding: 40px;
 }
 
 .container {
-  max-width: 720px;
+  max-width: 600px;
   width: 100%;
   background: #1c1c1c;
   padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 0 40px rgba(0, 255, 200, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(0,255,200,0.15);
+  text-align: center;
 }
 
-/* Titel & Beschreibung */
-h1 {
-  font-size: 28px;
-  margin-bottom: 10px;
-  color: #0ff;
-}
-
-p {
-  font-size: 16px;
-  margin-bottom: 25px;
-  color: #ccc;
-}
-
-/* Formular */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+input, button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 6px;
 }
 
 input {
-  padding: 12px;
-  font-size: 16px;
-  border: none;
-  border-radius: 8px;
-  background: #2a2a2a;
+  background: #333;
   color: #fff;
 }
 
-input::placeholder {
-  color: #888;
-}
-
 button {
-  padding: 14px;
-  font-size: 16px;
-  font-weight: bold;
   background: #00ffc3;
   color: #000;
-  border: none;
-  border-radius: 8px;
+  font-weight: bold;
   cursor: pointer;
-  transition: background 0.3s ease;
 }
 
 button:hover {
   background: #00d1a3;
-}
-
-/* Video */
-video {
-  width: 100%;
-  max-width: 100%;
-  border-radius: 12px;
-  margin-bottom: 25px;
-  box-shadow: 0 0 20px rgba(0, 255, 200, 0.2);
 }
